@@ -6,9 +6,9 @@ module Commerce
         :main_image, :slug
 
       def self.collection(products: products, url: '/products')
-        CollectionJSON.generate_for('/products/') do |builder|
+        CollectionJSON.generate_for(url) do |builder|
           Array(products).each do |product|
-            builder.add_item("/products#{product.slug}") do |item|
+            builder.add_item("/products/#{product.slug}") do |item|
               item_attributes.each do |attribute|
                 item.add_data attribute, value: product.send(attribute)
               end

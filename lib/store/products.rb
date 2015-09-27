@@ -18,6 +18,7 @@ module Commerce
           config.migrations_path   = File.expand_path(File.dirname(__FILE__) + "/db/migrate")
         end
       end
+
       # Get all products
       get '/' do
         #TODO: Put pagination
@@ -40,7 +41,14 @@ module Commerce
       # Get all products in categories
       get '/c/*' do
         if params[:splat].any?
-          # Look up the tags
+          # Look up the categories
+          products = ProductRepository.find_by_category(params[:splat].first)
+          if products.any?
+            content_type "application/vnd.collection+json"
+            Product.collection(products: products, url: "/c/#{params[:splat].first}").to_json
+          else
+            halt(404)
+          end
         end
       end
     end
