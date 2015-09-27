@@ -1,4 +1,4 @@
-module SinatraCommerce
+module Commerce
   module Store
     class Products < Sinatra::Base
       #TODO: Move to module

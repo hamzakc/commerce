@@ -1,6 +1,6 @@
 require_relative '../../spec_helper.rb'
 
-describe SinatraCommerce::Store::Product do
+describe Commerce::Store::Product do
 
   context "structure" do
     let (:product) {described_class.new}

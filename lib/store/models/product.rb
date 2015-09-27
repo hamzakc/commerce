@@ -1,4 +1,4 @@
-module SinatraCommerce
+module Commerce
   module Store
     class Product
       include Curator::Model

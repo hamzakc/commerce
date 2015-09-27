@@ -4,7 +4,7 @@ require 'rspec'
 require "rack/test"
 require 'pry-byebug'
 
-require_relative '../lib/sinatra_commerce'
+require_relative '../lib/commerce'
 
 RSpec.configure do |config|
   include Rack::Test::Methods

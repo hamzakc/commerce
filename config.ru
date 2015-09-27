@@ -1,5 +1,5 @@
-require './lib/sinatra_commerce'
+require './lib/commerce'
 
 run Rack::URLMap.new(
-  '/products' => SinatraCommerce::Store::Products
+  '/products' => Commerce::Store::Products
 )

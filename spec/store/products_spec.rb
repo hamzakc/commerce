@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
-include SinatraCommerce::Store
-describe SinatraCommerce::Store::Products do
+include Commerce::Store
+describe Commerce::Store::Products do
 
   def app
     described_class.new
