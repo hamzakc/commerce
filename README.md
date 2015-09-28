@@ -53,10 +53,8 @@ the application into actual microservices in the not to distant future.
 ### Work done so far
 Not too much.  I have started on the Shop ProductService using Sinatra and mongoDB. I am going to try and use the curator
 gem as a model and repository framework. This will help me conform to domain driven design principles (hopefully). 
-Unfortulitly curator do not have any plans to support the MongoDB v2 driver.  The API has completly changed so I need to
-get it working with v2 before I can make any progress.  In the mean time I might just use Riak.  I am only put off from
-Riak as you have to give them your email address before you can download it and their sales team then follow up with you 
-a little more then I would like.
+Unfortunately curator do not have any plans to support the MongoDB v2 driver.  The API has completly changed so I need to
+get it working with v2 before I can make any progress.  I am going to use v1 of the mongo db driver until I have more time to get the curator gem working with v2.
 
 ### Contribute
 If you have any ideas on how to make this awsome get in touch and submit a pull request :)
