@@ -42,11 +42,10 @@ The Admin area will be split into the following micro services:
 
 ### DataStore
 Where necessary each service will have their own database. Initially this will be a NoSQL distributed store.
-I am on the fence on which one to choose, but to just get things going I am going to start to use MongoDB or
-Riak
+I am on the fence on which one to choose, but to just get things going I am going to start to use MongoDB.
 
 ### Where are the micro services?
-As it is difficlut to change service boundries once they have been spltit up. I am going to develop this entirly in one
+As it is difficlut to change service boundries once they have been split up. I am going to develop this entirly in one
 application to begin with and simply use modules to split out the different services. This will help me when splitting
 the application into actual microservices in the not to distant future.
 
