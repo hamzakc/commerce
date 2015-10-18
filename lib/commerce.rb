@@ -16,6 +16,6 @@ module Commerce
   # Store::Product Service
   require 'store/models/product'
   require 'store/repositories/product_repository'
+  require 'store/base'
   require 'store/products'
 end
-
