@@ -44,6 +44,9 @@ The Admin area will be split into the following micro services:
 Where necessary each service will have their own database. Initially this will be a NoSQL distributed store.
 I am on the fence on which one to choose, but to just get things going I am going to start to use MongoDB.
 
+### Communication between services
+I am going to explore using IBM's MQ Light messaging system.  This will allow servies to be decoupled from each other and will allow a pub/sub architecture. For example if an admin user makes a change to a prodcut (using the admin product service), this is then pushed to the frontend product service which in turn updates the product. Otherwise we would have to have a post made to the frontend service when the admin service is updated. This would couple the two services together.
+
 ### Where are the micro services?
 As it is difficlut to change service boundries once they have been split up. I am going to develop this entirly in one
 application to begin with and simply use modules to split out the different services. This will help me when splitting
