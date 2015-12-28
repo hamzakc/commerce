@@ -42,7 +42,7 @@ The Admin area will be split into the following micro services:
 
 ### DataStore
 Where necessary each service will have their own database. Initially this will be a NoSQL distributed store.
-I am on the fence on which one to choose, but to just get things going I am going to start to use MongoDB.
+I am on the fence on which one to choose, but to just get things going I am going to start to use Riak.
 
 ### Communication between services
 I am going to explore using IBM's MQ Light messaging system.  This will allow servies to be decoupled from each other and will allow a pub/sub architecture. For example if an admin user makes a change to a prodcut (using the admin product service), this is then pushed to the frontend product service which in turn updates the product. Otherwise we would have to have a post made to the frontend service when the admin service is updated. This would couple the two services together.
@@ -53,10 +53,8 @@ application to begin with and simply use modules to split out the different serv
 the application into actual microservices in the not to distant future.
 
 ### Work done so far
-Not too much.  I have started on the Shop ProductService using Sinatra and mongoDB. I am going to try and use the curator
+Not too much.  I have started on the Shop ProductService using Sinatra and Riak. I am going to try and use the curator
 gem as a model and repository framework. This will help me conform to domain driven design principles (hopefully). 
-Unfortunately curator do not have any plans to support the MongoDB v2 driver.  The API has completly changed so I need to
-get it working with v2 before I can make any progress.  I am going to use v1 of the mongo db driver until I have more time to get the curator gem working with v2.
 
 ### Contribute
 If you have any ideas on how to make this awsome get in touch and submit a pull request :)

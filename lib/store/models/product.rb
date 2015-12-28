@@ -5,7 +5,7 @@ module Commerce
       attr_accessor :id, :department, :category, :title, :description, :summary, :main_thumbnail,
         :main_image, :slug
 
-      def self.collection(products: products, url: '/products')
+      def self.collection(products:, url: '/products')
         CollectionJSON.generate_for(url) do |builder|
           Array(products).each do |product|
             builder.add_item("/products/#{product.slug}") do |item|

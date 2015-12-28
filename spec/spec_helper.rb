@@ -6,7 +6,9 @@ require 'pry-byebug'
 
 require_relative '../lib/commerce'
 
+
 RSpec.configure do |config|
+
   include Rack::Test::Methods
   config.before(:suite) do
     Curator.data_store.remove_all_keys

@@ -3,7 +3,7 @@ require "bundler/setup"
 require "sinatra/base"
 require "erb"
 require "curator"
-require 'mongo'
+require 'riak'
 require 'collection-json'
 
 module Commerce
