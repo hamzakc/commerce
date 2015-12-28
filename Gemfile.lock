@@ -45,6 +45,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (10.4.2)
     riak-client (1.4.5)
       beefcake (~> 1.0.0)
       builder (>= 2.1.2)
@@ -83,6 +84,7 @@ DEPENDENCIES
   httparty
   pry-byebug
   rack-test
+  rake
   riak-client
   rspec
   sinatra

@@ -7,6 +7,7 @@ gem 'collection-json'
 gem 'riak-client'
 
 group "test" do
+  gem "rake"
   gem "rspec"
   gem 'pry-byebug'
   gem 'rack-test'
