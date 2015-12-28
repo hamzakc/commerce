@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hamzakc/commerce.svg)](https://travis-ci.org/hamzakc/commerce)
+
 # commerce
 Exploration work for building a microservice e-commerce platform.
 
