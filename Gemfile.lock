@@ -10,8 +10,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    amq-protocol (2.0.1)
     beefcake (1.0.0)
     builder (3.2.2)
+    bunny (2.2.2)
+      amq-protocol (>= 2.0.1)
     byebug (5.0.0)
       columnize (= 0.9.0)
     coderay (1.1.0)
@@ -79,6 +82,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bunny
   collection-json
   curator
   httparty
@@ -88,6 +92,3 @@ DEPENDENCIES
   riak-client
   rspec
   sinatra
-
-BUNDLED WITH
-   1.11.2
