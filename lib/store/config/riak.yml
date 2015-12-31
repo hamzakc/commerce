@@ -1,6 +1,6 @@
 development:
-  :host: localhost
+  :host: 'riak'
   :http_port: 8098
 test:
-  :host: localhost
+  :host: 'riak'
   :http_port: 8098
