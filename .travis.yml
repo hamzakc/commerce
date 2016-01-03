@@ -1,11 +1,10 @@
 language: ruby
 cache: bundler
 
-services:
-  - docker
-  - docker-compose
+addons:
+  hosts:
+    - riak
 
-before-install:
-  - docker-compose up
-  - docker-compose ps
+services:
+  - riak
 
