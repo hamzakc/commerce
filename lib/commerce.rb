@@ -16,8 +16,10 @@ module Commerce
   # Store::Product Service
   require 'store/models/product'
   require 'store/models/inventory'
+  require 'store/models/shopping_cart'
   require 'store/repositories/product_repository'
   require 'store/repositories/inventory_repository'
+  require 'store/repositories/shopping_cart_repository'
   require 'store/base'
   require 'store/products'
   require 'store/inventories'
