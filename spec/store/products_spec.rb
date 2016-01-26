@@ -6,7 +6,9 @@ describe Commerce::Store::Products do
     described_class.new
   end
   let(:category) {"Shoes/Women/Pumps"}
-  let(:product1) {Product.new(:id => '123', title: 'Test Title', slug: 'prod1', category: category)}
+  let(:product1) {Product.new(id:'123', title:'Test Title', slug:'prod1',
+                              category:category, inventory:[ "1", "2"])}
+
   let(:parsed_response) {CollectionJSON.parse(response.body)}
 
   before do
@@ -39,7 +41,7 @@ describe Commerce::Store::Products do
         end
 
         it "sets the links" do
-          %w(thumbnail image).each do |field|
+          %w(thumbnail image inventory).each do |field|
             expect(item.link(field)).to_not be_nil
           end
         end
@@ -81,7 +83,7 @@ describe Commerce::Store::Products do
         end
 
         it "sets the links" do
-          %w(thumbnail image).each do |field|
+          %w(thumbnail image inventory).each do |field|
             expect(item.link(field)).to_not be_nil
           end
         end

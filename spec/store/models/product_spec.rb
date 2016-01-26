@@ -7,7 +7,7 @@ describe Commerce::Store::Product do
 
     it "has all fields" do
       [:department, :category, :title, :description, :summary, :main_thumbnail,
-        :main_image, :slug].each { |name| product_responds_to name}
+        :main_image, :slug, :inventory].each { |name| product_responds_to name}
     end
 
     def product_responds_to(attribute)

@@ -15,7 +15,10 @@ module Commerce
   # Store
   # Store::Product Service
   require 'store/models/product'
+  require 'store/models/inventory'
   require 'store/repositories/product_repository'
+  require 'store/repositories/inventory_repository'
   require 'store/base'
   require 'store/products'
+  require 'store/inventories'
 end
