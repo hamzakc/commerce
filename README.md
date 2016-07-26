@@ -3,9 +3,9 @@
 # commerce
 Exploration work for building a microservice e-commerce platform.
 
-I am trying to produce a basic functioning e-commerce solution built with micro services. The initial build will be entirly in
-Ruby and Sinatra as this is the easiest thing for me to get going.  But it will most likly become a cross language prospect in
-the near future. 
+I am trying to produce a basic functioning e-commerce solution built with micro services. The initial build will 
+be entirely in Ruby and Sinatra as this is the easiest thing for me to get going.  But it will most likely 
+become a cross language prospect in the near future. Hopefully more functional then OO.
 
 The services will be divided into two areas:
 
@@ -47,10 +47,14 @@ Where necessary each service will have their own database. Initially this will b
 I am on the fence on which one to choose, but to just get things going I am going to start to use Riak.
 
 ### Communication between services
-I am going to explore using IBM's MQ Light messaging system.  This will allow servies to be decoupled from each other and will allow a pub/sub architecture. For example if an admin user makes a change to a prodcut (using the admin product service), this is then pushed to the frontend product service which in turn updates the product. Otherwise we would have to have a post made to the frontend service when the admin service is updated. This would couple the two services together.
+I am going to explore using a light messaging system. This will allow services to be decoupled 
+from each other and will allow a pub/sub architecture. For example if an admin user makes a change to a 
+prodcut (using the admin product service), this is then pushed to the frontend product service which in 
+turn updates the product. Otherwise we would have to have a post made to the frontend service when the 
+admin service is updated. This would couple the two services together. I am looking into Apache Kafka at the moment.
 
 ### Where are the micro services?
-As it is difficlut to change service boundries once they have been split up. I am going to develop this entirly in one
+As it is difficult to change service boundaries once they have been split up. I am going to develop this entirely in one
 application to begin with and simply use modules to split out the different services. This will help me when splitting
 the application into actual microservices in the not to distant future.
 
@@ -59,4 +63,4 @@ Not too much.  I have started on the Shop ProductService using Sinatra and Riak.
 gem as a model and repository framework. This will help me conform to domain driven design principles (hopefully). 
 
 ### Contribute
-If you have any ideas on how to make this awsome get in touch and submit a pull request :)
+If you have any ideas on how to make this awesome get in touch and submit a pull request :)
