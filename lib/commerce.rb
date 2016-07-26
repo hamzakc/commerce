@@ -23,4 +23,5 @@ module Commerce
   require 'store/base'
   require 'store/products'
   require 'store/inventories'
+  require 'store/shopping_carts'
 end

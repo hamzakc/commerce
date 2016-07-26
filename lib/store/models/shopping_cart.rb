@@ -2,14 +2,14 @@ module Commerce
   module Store
     class ShoppingCart
       include Curator::Model
-      attr_accessor :id, :user, :expire_time, :items
+      attr_accessor :id, :expire_time, :items
 
       def self.collection(shopping_cart:, url: '/cart')
         CollectionJSON.generate_for(url) do |builder|
           Array(shopping_cart).each do |_cart|
-            builder.add_item("/shipping_cart/#{_cart.id}") do |item|
+            builder.add_item("/shopping_cart/#{_cart.id}") do |item|
               item_attributes.each do |attribute|
-                item.add_data attribute, value: _inventory.send(attribute)
+                item.add_data attribute, value: _cart.send(attribute)
               end
             end
           end
@@ -18,12 +18,25 @@ module Commerce
         end
       end
 
-      private
+      #TODO Refactor
+      def add_item(item)
+        if items.nil?
+          self.items = [item]
+        else
+          items.each do |existing_item|
+            if existing_item[:id] == item[:id]
+              existing_item[:quantity] = existing_item[:quantity].to_i + 1
+              return
+            end
+          end
+          self.items << item
+        end
+      end
 
+      private
       def self.item_attributes
         [:id, :expire_time, :items]
       end
     end
   end
 end
-
