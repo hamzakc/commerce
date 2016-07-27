@@ -55,8 +55,39 @@ describe Commerce::Store::ShoppingCarts do
     end
   end
 
-  describe "#update" do
+  describe "#create" do
 
+    subject(:item) {parsed_response.items.first}
+
+    let(:response) do
+      get "/#{new_session_id}"
+      last_response
+    end
+
+    context "new product" do
+      let(:new_product_id) {"new_prod_id"}
+      let(:new_product_qty) {"4"}
+      let(:new_session_id) {"new"}
+
+      before do
+        post "/#{new_session_id}", items: [{id: new_product_id, quantity: new_product_qty}]
+      end
+
+      it "adds item" do
+        expect(item.datum("items").value.size).to eql 1
+      end
+
+      it "sets the id" do
+        expect(item.datum("items").value.last["id"]).to eq new_product_id
+      end
+
+      it "sets the quantity" do
+        expect(item.datum("items").value.last["quantity"]).to eq new_product_qty
+      end
+    end
+  end
+
+  describe "#update" do
     subject(:item) {parsed_response.items.first}
 
     let(:response) do
@@ -71,6 +102,7 @@ describe Commerce::Store::ShoppingCarts do
       before do
         put "/#{id}", item: {id: new_product_id, quantity: new_product_qty}
       end
+
       it "adds item" do
         expect(item.datum("items").value.size).to eql 2
       end
@@ -82,6 +114,30 @@ describe Commerce::Store::ShoppingCarts do
       it "sets the quantity" do
         expect(item.datum("items").value.last["quantity"]).to eq new_product_qty
       end
+    end
+  end
+
+  describe "#delete" do
+    subject(:item) {parsed_response.items.first}
+
+    let(:response) do
+      get "/#{id}"
+      last_response
+    end
+
+    context "when item exists" do
+
+     it "deletes the item" do
+        delete "/#{id}/#{item_id}"
+        expect(item.datum("items").value).to be_nil
+     end
+    end
+
+    context "when item does not exist" do
+     it "does not delete the item" do
+        delete "/#{id}/not_foumd_id"
+        expect(item.datum("items").value).to_not be_nil
+     end
     end
   end
 end

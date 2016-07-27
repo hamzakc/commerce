@@ -33,6 +33,20 @@ module Commerce
         end
       end
 
+      def add_items(items)
+        items.each {|item| add_item(item)}
+      end
+
+      def remove_item(item_id)
+        items.each_with_index do |existing_item,index|
+          if existing_item[:id] == item_id
+            items.delete_at(index)
+            return true
+          end
+        end
+        false
+      end
+
       private
       def self.item_attributes
         [:id, :expire_time, :items]
